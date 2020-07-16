@@ -27,10 +27,10 @@
             <th scope="row">{{$index + 1}}</th>
             <td> Buy {{item.count}}</td>
             <td>{{item.name}}</td>
-            <td><button ng-click="toBuyList.addToBoughtList($index, item.name, item.count)" class="btn btn-primary">Bought</button></td>
+            <td><button ng-click="toBuyList.addToBoughtList( $index, item.name, item.count)" class="btn btn-primary">Bought</button></td>
           </tr>
-          <div ng-show="toBuyList.errorMessage" class="error">{{toBuyList.errorMessage}}</div>
         </tbody>
+        <div ng-if="toBuyList.errorMessage" class="error">{{toBuyList.errorMessage}}Everything is bought!</div>
       </table>
     </div>
     <div class="col-md-6">
@@ -51,8 +51,8 @@
             <td>{{item.name}}</td>
             <td><button class="btn btn-primary" ng-click="alreadyBoughtList.removeItem($index, item.name, item.count);">Remove Item</button></td>
           </tr>
-          <div ng-if="!alreadyBoughtList.flag" class="error">Nothing bought yet!</div>
         </tbody>
+        <div ng-if="!alreadyBoughtList.errorMessage" class="error">{{alreadyBoughtList.errorMessage}}Nothing bought yet.</div>
       </table>
     </div>
   </div>
